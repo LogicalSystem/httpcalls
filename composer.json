@@ -1,0 +1,7 @@
+{
+    "name": "logicalsystem/httpcalls",
+    "description": "Libreria curl",
+    "require": {
+        "php": ">=7.1"
+    }
+}
