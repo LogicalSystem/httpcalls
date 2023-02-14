@@ -44,6 +44,10 @@ class HttpCalls {
                 if($postField == "") $postField = "{}";
                 if(is_array($postField)) $postField = json_encode($postField);
                 break;
+
+            case 'multipart/form-data':
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                break;
             
             default:
                 $headers[] = "Content-Type: ".$contentType;
