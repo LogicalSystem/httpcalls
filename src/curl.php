@@ -2,15 +2,18 @@
 
 use LogicalSystem\HttpCalls\HttpCalls;
 
-require_once("./HttpCalls.php");
+require_once(realpath(dirname(__FILE__))."/HttpCalls.php");
 
-if (isset($argc)) {
+$val = getopt("p:");
 
-    $method = $argv[1];
-    $url = $argv[2];
-    $postField = $argv[3] ?? "{}";
-    $contentType = $argv[4] ?? "application/json";
-    $header = json_decode($argv[5] ?? "[]",true);
+if ($val !== false) {
+
+    $method = $val["p"][0];
+    $url = $val["p"][1];
+    $postField = $val["p"][2] ?? "{}";
+    $contentType = $val["p"][3] ?? "application/json";
+    $header = json_decode($val["p"][4] ?? "[]",true);
+
 
     switch ($method) {
         case 'get':
@@ -30,7 +33,5 @@ if (isset($argc)) {
             $result = "";
             break;
     }
-	
-    echo($result);
 
 }
