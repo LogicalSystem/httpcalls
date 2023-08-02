@@ -189,11 +189,3 @@ class HttpCalls {
 
 
 }
-
-
-
-
-
-
-
-?>
