@@ -4,9 +4,11 @@ namespace LogicalSystem\HttpCalls;
 
 class HttpCalls {
 
-    public static function get($url, $header = []) {
+    public static function get($url, $header = [], $timeout = 30) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         if(!empty($header)) {$headers = [];
             if(!empty($header)) {
@@ -23,9 +25,11 @@ class HttpCalls {
 
 
 
-    public static function post($url,$postField = "{}", $contentType = "application/json", $header = [], $full = false) {
+    public static function post($url,$postField = "{}", $contentType = "application/json", $header = [], $full = false, $timeout = 30) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); 
         curl_setopt($ch, CURLOPT_POST, 1);
 
         $headers = [];
@@ -82,9 +86,11 @@ class HttpCalls {
 
 
 
-    public static function delete($url, $postField = "{}", $contentType = "application/json", $header = [], $full = false) {
+    public static function delete($url, $postField = "{}", $contentType = "application/json", $header = [], $full = false, $timeout = 30) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); 
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 
         $headers = [];
@@ -131,9 +137,11 @@ class HttpCalls {
     }
 
 
-    public static function put($url, $postField = "{}", $contentType = "application/json", $header = [], $full = false) {
+    public static function put($url, $postField = "{}", $contentType = "application/json", $header = [], $full = false, $timeout = 30) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); 
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 
         $headers = [];
